@@ -1,0 +1,16 @@
+@import "variables";
+
+:host {
+  height: 100%;
+  display: block;
+}
+
+.chat {
+
+  &__submit {
+    background: $light-green;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+}

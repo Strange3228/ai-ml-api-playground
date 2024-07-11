@@ -1,0 +1,13 @@
+<div
+  class="message flex"
+  [ngClass]="{
+    'message--user': message.role === senderRole.User,
+    'message--system': message.role === senderRole.System,
+    'message--assistant': message.role === senderRole.Assistant
+  }"
+>
+  <div class="message__wrapper py-3 px-6">
+    <div class="message__role text-sm">{{message.role | titlecase}}</div>
+    <p class="message__content text-lg">{{message.content}}</p>
+  </div>
+</div>

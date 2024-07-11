@@ -1,0 +1,15 @@
+@import "variables";
+
+.app {
+  background: $dark-green;
+
+  .chat-wrapp {
+    flex: 1;
+  }
+}
+
+.chat {
+  height: 100%;
+  overflow-y: auto;
+  border: 2px solid black;
+}
