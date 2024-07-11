@@ -1,0 +1,30 @@
+<div class="settings relative bg-white py-10 px-4 rounded overflow-hidden">
+
+  <div
+    *ngIf="isLoading"
+    class="settings__loader flex justify-center items-center absolute z-10 top-0 right-0 w-full h-full bg-opacity-20 bg-black"
+  >
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <form
+    (submit)="$event.preventDefault(); onSubmit()"
+    [formGroup]="settingsForm"
+    class="flex flex-col items-center"
+  >
+
+    <mat-form-field class="w-full">
+      <mat-label>Model name</mat-label>
+      <mat-select [formControlName]="'modelName'">
+        <mat-option *ngFor="let name of modelNames" [value]="name">{{ name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Max response length</mat-label>
+      <input type="number" matInput [formControlName]="'maxResponseLength'" value="0">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button>Save</button>
+  </form>
+</div>

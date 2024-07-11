@@ -2,11 +2,20 @@
   <div class="header">
     <div class="container mx-auto px-4 py-4 flex justify-end">
       <div class="header__menu menu">
+        <div class="menu__item menu__item--setting">
+          <mat-icon
+            (click)="openSettingsDialog()"
+            class="scale-150 cursor-pointer"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="settings_applications"
+          ></mat-icon>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="chat-wrapp container h-full mx-auto px-4 py-6">
+  <div class="chat-wrapp container h-full mx-auto px-4 pb-6">
     <div class="chat">
       <app-chat></app-chat>
     </div>

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@angular/cdk/overlay-prebuilt.css';
+
 body, input, textare, button {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
