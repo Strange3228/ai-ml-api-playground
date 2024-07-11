@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api.aimlapi.com',
-  apiKey: 'ce6230411b1a43a5a2463874aae13ee6'
+  baseUrl: 'https://api.aimlapi.com'
 };
 
 /*

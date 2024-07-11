@@ -12,10 +12,12 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSelectModule } from "@angular/material/select";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
 
 @NgModule({
   declarations: [
-    SettingsDialogComponent
+    SettingsDialogComponent,
+    AuthDialogComponent
   ],
   imports: [
     MatInputModule,

@@ -1,0 +1,19 @@
+<div class="bg-white py-10 px-4 rounded overflow-hidden">
+  <form
+    (submit)="$event.preventDefault(); onSubmit()"
+    [formGroup]="authForm"
+    class="flex flex-col items-center"
+  >
+    <p class="text-center">Your API key will be stored securely in your local storage, ensuring that it remains safe and only accessible on your local client. This way, your key will not be shared or transmitted over the internet.</p>
+    <div *ngIf="data.wasClosedBefore" class="warning-message">
+      <p class="text-red-500">Warning: Without completing this step, you will not be able to proceed.</p>
+    </div>
+
+    <mat-form-field class="w-full">
+      <mat-label>Api Key</mat-label>
+      <input #apiKeyInput matInput [formControlName]="'apiKey'" placeholder="Pass your api key" value="">
+    </mat-form-field>
+
+    <button [disabled]="apiKeyInput.value.length === 0" type="submit" mat-raised-button>Save</button>
+  </form>
+</div>
