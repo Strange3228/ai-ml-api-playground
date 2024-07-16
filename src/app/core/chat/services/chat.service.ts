@@ -21,23 +21,26 @@ export class ChatService {
   sendMessage(message: MessageInterface) {
     this.chatStore.addMessage(message)
 
-    const settings = this.chatSettings.getCurrentSettings();
-    const settingsMessage: MessageInterface = {
-      role: MessageRoleEnum.User,
-      content: `You are an AI assistant who knows everything. In your responses you should not use more than ${settings.maxTokens} characters.`
-    }
+    if (message.role === MessageRoleEnum.User) {
+      const settings = this.chatSettings.getCurrentSettings();
+      // const settingsMessage: MessageInterface = {
+      //   role: MessageRoleEnum.User,
+      //   content: `You are an AI assistant who knows everything. In your responses you should not use more than ${settings.maxTokens} characters.`
+      // }
 
-    this.chatStore.messages$.pipe(
-      take(1),
-      switchMap((currentMessages) => {
-        const payload = {
-          model: settings.modelName,
-          messages: [settingsMessage, ...currentMessages]
-        };
-        return this.http.post(`${environment.baseUrl}/chat/completions`, payload);
+      this.chatStore.messages$.pipe(
+        take(1),
+        switchMap((currentMessages) => {
+          const payload = {
+            model: settings.modelName,
+            messages: [...currentMessages],
+            max_tokens: settings.maxTokens
+          };
+          return this.http.post(`${environment.baseUrl}/chat/completions`, payload);
+        })
+      ).subscribe((response: any) => {
+        this.chatStore.addMessage(response.choices[0].message)
       })
-    ).subscribe((response: any) => {
-      this.chatStore.addMessage(response.choices[0].message)
-    })
+    }
   }
 }

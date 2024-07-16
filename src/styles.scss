@@ -4,6 +4,8 @@
 
 @import '@angular/cdk/overlay-prebuilt.css';
 
+@import 'variables.scss';
+
 body, input, textare, button {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -12,3 +14,24 @@ body, input, textare, button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.button {
+  background-color: $primary-color;
+  color: white;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.secondary-button {
+  background-color: $secondary-color;
+  color: white;
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}

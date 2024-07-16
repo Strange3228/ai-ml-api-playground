@@ -25,7 +25,7 @@ export class AuthDialogComponent {
 
   onSubmit() {
     this.apiAuthService.setApiToken(this.authForm.get('apiKey')?.value!);
-    this._snackBar.open('ApiKey passed successfully!');
+    this._snackBar.open('ApiKey passed successfully!', 'Close');
     this.dialogRef.close('success');
   }
 }

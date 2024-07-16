@@ -47,7 +47,7 @@ export class SettingsDialogComponent implements OnInit {
       modelName: this.settingsForm.get('modelName')?.value!,
       maxTokens: this.settingsForm.get('maxResponseLength')?.value!
     });
-    this._snackBar.open('Settings updated successfully!')
+    this._snackBar.open('Settings updated successfully!', 'Close')
     this.dialogRef.close();
   }
 }

@@ -1,5 +1,5 @@
-<div class="chat h-full py-4 px-6 flex justify-end flex-col">
-  <div class="chat__messages overflow-auto pb-10 flex flex-col gap-10">
+<div class="chat h-full py-4 flex justify-end flex-col">
+  <div class="chat__messages overflow-auto pb-10 flex flex-col gap-8">
     <app-chat-message
       *ngFor="let message of (messages$ | async)"
       [message]="message"
@@ -7,21 +7,28 @@
   </div>
   <form
     [formGroup]="chatForm"
-    class="chat__form flex justify-between gap-10"
+    class="chat__form flex justify-between gap-8"
     (submit)="$event.preventDefault(); sendMessage()"
   >
     <input
-      class="chat__input outline-0 flex-1 px-4 py-2 text-lg rounded-2xl"
+      class="chat__input flex-1"
       type="text"
       placeholder="Write something..."
       formControlName="newMessage"
     >
 
-    <select formControlName="role" class="outline-0 px-4 py-2 text-lg rounded-2xl">
+    <select formControlName="role" class="chat__select px-4 py-2">
       <option [value]="senderRole.User">{{senderRole.User | titlecase}}</option>
       <option [value]="senderRole.System">{{senderRole.System | titlecase}}</option>
     </select>
 
-    <button class="chat__submit font-bold text-blue-400" type="submit">Send</button>
+    <button class="chat__submit button font-bold text-blue-400 px-4 rounded-2xl relative" type="submit">
+      <mat-icon
+        class="scale-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        aria-hidden="false"
+        aria-label="Send icon"
+        fontIcon="send"
+      ></mat-icon>
+    </button>
   </form>
 </div>

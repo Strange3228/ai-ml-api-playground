@@ -18,25 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(!this.apiAuthService.isAuthenticated()) {
-      this.openAuthDialog();
-    }
-  }
-
-  openAuthDialog(wasClosedBefore = false) {
-    const dialogRef = this.dialog.open(AuthDialogComponent, {
-      width: '500px',
-      data: {
-        wasClosedBefore
-      }
-    });
-
-    dialogRef.closed.subscribe(result => {
-      console.log(result)
-      if (result !== 'success') {
-        this.openAuthDialog(true);
-      }
-    });
+    this.apiAuthService.login();
   }
 
   openSettingsDialog() {

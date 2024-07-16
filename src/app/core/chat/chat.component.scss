@@ -1,5 +1,10 @@
 @import "variables";
 
+$input-bg-color: #FFFFFF;
+$input-border-color: #CED4DA;
+$input-text-color: #495057;
+$input-placeholder-color: #6C757D;
+
 :host {
   height: 100%;
   display: block;
@@ -7,10 +12,50 @@
 
 .chat {
 
+  &__input, &__select {
+    background-color: $input-bg-color;
+    border: 1px solid $input-border-color;
+    color: $input-text-color;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: $input-placeholder-color;
+    }
+
+    &:focus {
+      border-color: darken($primary-color, 10%);
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+  }
+
   &__submit {
-    background: $light-green;
+    color: white;
+    border: none;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      background-color: darken($primary-color, 15%);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.3);
+    }
   }
 }

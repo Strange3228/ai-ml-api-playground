@@ -1,19 +1,61 @@
 @import "variables";
 
 .message {
+  display: flex;
+  margin-bottom: 1rem;
 
-  &--user, &--system {
+  p {
+    margin: 0;
+  }
+
+  &--user {
     justify-content: flex-end;
     text-align: right;
 
     .message__wrapper {
+      background: $message-bg-color;
       border-radius: 20px 20px 0 20px;
+    }
+  }
+
+  &--system {
+    justify-content: center;
+    text-align: center;
+
+    .message__wrapper {
+      background: lighten($received-msg-bg-color, 20%);
+      border-radius: 20px;
+    }
+
+    .message__role {
+      display: none;
+    }
+  }
+
+  &--assistant {
+    justify-content: flex-start;
+    text-align: left;
+
+    .message__wrapper {
+      background: $received-msg-bg-color;
+      border-radius: 20px 20px 20px 0;
     }
   }
 
   &__wrapper {
     border-radius: 20px 20px 20px 0;
     max-width: 75%;
-    background: $green;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  &__role {
+    color: $muted-text-color;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  &__content {
+    color: $text-color;
   }
 }

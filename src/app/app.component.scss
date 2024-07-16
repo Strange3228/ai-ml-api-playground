@@ -2,15 +2,18 @@
 
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
-.app {
-  background: $dark-green;
-
-  .chat-wrapp {
-    flex: 1;
-  }
+.header {
+  height: 70px;
 }
 
-.chat {
-  height: 100%;
-  overflow-y: auto;
+.chat-wrapp {
+  flex: 1;
+  max-height: calc(100vh - 80px);
+}
+
+.menu {
+
+  &__item {
+    color: $secondary-color;
+  }
 }
